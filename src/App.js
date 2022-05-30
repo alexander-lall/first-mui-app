@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+import SearchAppBar from './components/appbar/search-appbar.component';
+
+import Home from './routes/home/home.component';
+import Details from './routes/details/details.components';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <Fragment>
+      <SearchAppBar/>
+      <Routes>
+        <Route path='/' element={ <Home/> }/>
+        <Route path='/:id' element={ <Details/> }/>
+      </Routes>
+    </Fragment>
+    );
+  }
 
 export default App;
